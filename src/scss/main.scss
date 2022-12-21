@@ -1,0 +1,181 @@
+$bg_color: #f6f7f8;
+$brand-color: #666666;
+$font_color: #333333;
+$border_color: #999999;
+
+@mixin medium{
+  @media(min-width: 576px){
+    @content;
+  }
+}
+
+@mixin pc{
+  @media(min-width: 1200px){
+    @content;
+  }
+}
+
+.desc {
+  margin-bottom: 5px;
+  font-size: 13px;
+  color: $brand-color;
+}
+
+.fa-github:hover {
+  color: #2C974B;
+}
+
+.fa-linkedin:hover {
+  color: #0A66C2;
+}
+
+body {
+  background-color: $bg_color;
+  font-family: "Lato", "Noto Sans TC", sans-serif;
+  color: #333333;
+}
+
+header {
+  height: 60px;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.08);
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 100%;
+
+    a {
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: $brand-color
+    }
+
+    .email {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      i {
+        margin-right: 5px;
+      }
+    }
+  }
+  
+}
+
+main {
+  padding: 40px 20px;
+  @include pc{
+    display: flex;
+  }
+
+  .info {
+    text-align: center;
+    @include pc{
+      padding: 20px;
+      width: 40%;
+    }
+    .info-head_shot {
+      width: 100%;
+
+      img {
+        width: 128px;
+        height: 128px;
+        border-radius: 25px;
+        object-fit: cover;
+      }
+    }
+
+    .info-name {
+      display: flex;
+      flex-direction: column;
+      margin: 20px 0;
+
+      &_ch {
+        font-size: 32px;
+      }
+    }
+
+    .info-links {
+      margin-bottom: 20px;
+    }
+
+    .info-title {
+      font-size: 14px;
+      margin-bottom: 20px;
+      color: rgb(24, 121, 185);
+    }
+
+    .info-intro {
+      text-align: left;
+      color: $brand-color;
+      line-height: 24px;
+    }
+  }
+
+  .details {
+    .details-skills {
+      &_header {
+        margin: 16px 0;
+      }
+
+      &_content {
+        .skills-wrapper {
+          @include medium{
+            display: flex;
+            justify-content: space-between;
+          }
+          .skill {
+            border-top: 1px solid $border-color;
+            @include medium{
+              width: 30%;
+            }
+            &_title {
+              margin: 16px 0;
+            }
+
+            &_content {
+              color: $brand-color;
+              margin-bottom: 16px;
+            }
+          }
+        }
+      }
+    }
+
+    .details-exps {
+      &_header {
+        margin: 16px 0;
+      }
+
+      &_content {
+        .exps-wrapper {
+          @include pc{
+            display: flex;
+            justify-content: space-between;
+          }
+          .exp {
+            border-top: 1px solid $border_color;
+            @include pc{
+              width: 30%;
+            }
+            &_title {
+              margin: 16px 0;
+              
+              &_desc {
+                display: flex;
+                flex-direction: column;
+              }
+            }
+            
+            &_content {
+              color: $brand-color;
+              margin-bottom: 16px;
+            }
+          }     
+        }
+      }
+    }
+  }
+}
